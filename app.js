@@ -2,13 +2,30 @@
 require('dotenv').config();
 
 const express = require('express');
+const { createConnection } = require('mysql');
 const mysql = require('mysql');
-
 const app = express();
+
+//establezco los parametros de conexión db
+const conexion = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'articulosdb'
+})
+
+//probando la conexión a db
+conexion.connect((error) => {
+    if (error) {
+        throw error
+    } else {
+        console.log('conectaste la db :)')
+    }
+})
 
 app.get('/', (req, res) => res.send('Hola mundo...'));
 
 //variable de entorno para que pueda variar el puerto defecto en caso de que este ocupado
 const puerto = 3000 || process.env.PUERTO;
 
-app.listen(puerto, () => console.log(`Corriendo Servidor en puerto ${puerto}`));
+app.listen(puerto, () => console.log(`Servidor ok en puerto ${puerto}`));
