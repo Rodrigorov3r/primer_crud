@@ -6,13 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./stylesheets/reset.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/cabecera.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/formulario.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/inputs.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/botones.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/tabla.css">    
+    <link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
     
     <title>First Crud</title>
 </head>
 <body>
-    <header class="cabecera">Crud</header>
+    <header class="cabecera">
+        <img class="cabecera__imagen" src="./stylesheets/crud.png">
+       
+    </header>
         <main>
-            <section class="secciones" id="formulario-carga">
+            <section class="secciones">
                 <form class = "formulario" id="carga-producto">
                     <div>
                         <label class="label" for="codigo-prodcuto">Codigo de Producto</label>
@@ -24,54 +36,40 @@
                     </div>
                     </div> 
                         <label class="label" for="cantidad">Cantidad</label>
-                        <input type="text" class="inputs" id="cantidad" placeholder="Coloque la cantidad de productos"></input>
+                        <input type="number" class="inputs" id="cantidad" placeholder="Coloque la cantidad de productos"></input>
                     </div> 
                     </div>
                         <label class="label" for="precio">Precio</label>
-                        <input type="text" class="inputs" id="precio" placeholder="Coloque el precio"></input>
+                        <input type="number" class="inputs" id="precio" placeholder="Coloque el precio"></input>
                     </div>
                     </div>
-                        <button class="botones" type="button" id="crear">Crear</button>
-                      <button class="botones" type="button" id="reset">Reset</button>   
+                        <button class="botones__formulario__carga" type="button" id="crear">Crear</button>
+                      <button class="botones__formulario__carga" type="button" id="reset">Reset</button>   
                     </div>
                 </form>    
             </section>
-            <section class="secciones" id="display-carga">
-                <table>
-                    <thead>
-                        <th class="t-header">Product Code</th>
-                        <th class="t-header">Product Name</th>
-                        <th class="t-header">Product Qty</th>
-                        <th class="t-header">Product Price</th>
+            <section class="secciones">
+                <table class="tabla">
+                    <thead class="tabla__cabecera">
+                        <th class="tabla__cabecera__fila">Product Code</th>
+                        <th class="tabla__cabecera__fila">Product Name</th>
+                        <th class="tabla__cabecera__fila">Product Qty</th>
+                        <th class="tabla__cabecera__fila">Product Price</th>
                     </thead>
                     <tbody>
-                        <tr class="t-row">
-                            <td class="t-data" id="t-codigo"></td>
-                            <td class="t-data" id="t-nombre" ></td>
-                            <td class="t-data" id="t-cantidad"></td>
-                            <td class="t-data" id="t-precio"></td>
-                            <td class="t-data" id= "t-botones"><button class="botones" type="button"id="editar">Editar</button><button class="botones" type="button"id="eliminar">Eliminar</button></td>
+                        <tr class="tabla__fila">
+                            <td class="tabla__celda" id="t-codigo"></td>
+                            <td class="tabla__celda" id="t-nombre" ></td>
+                            <td class="tabla__celda" id="t-cantidad"></td>
+                            <td class="tabla__celda" id="t-precio"></td>
+                            <td class="tabla__celda" id= "t-botones"><button class="botones__formulario__edicion" type="button"id="editar">Editar</button><button class="botones__formulario__edicion" type="button"id="eliminar">Eliminar</button></td>
                         </tr>
-                        <tr class="t-row">
-                            <td class="t-data" id="t-codigo"></td>
-                            <td class="t-data" id="t-nombre" ></td>
-                            <td class="t-data" id="t-cantidad"></td>
-                            <td class="t-data" id="t-precio"></td>
-                            <td class="t-data" id= "t-botones"><button class="botones" type="button"id="editar">Editar</button><button class="botones" type="button"id="eliminar">Eliminar</button></td>
-                        </tr>
-                        <tr class="t-row">
-                            <td class="t-data" id="t-codigo"></td>
-                            <td class="t-data" id="t-nombre" ></td>
-                            <td class="t-data" id="t-cantidad"></td>
-                            <td class="t-data" id="t-precio"></td>
-                            <td class="t-data" id= "t-botones"><button class="botones" type="button"id="editar">Editar</button><button class="botones" type="button"id="eliminar">Eliminar</button></td>
-                        </tr>
-                        <tr class="t-row">
-                            <td class="t-data" id="t-codigo"></td>
-                            <td class="t-data" id="t-nombre" ></td>
-                            <td class="t-data" id="t-cantidad"></td>
-                            <td class="t-data" id="t-precio"></td>
-                            <td class="t-data" id= "t-botones"><button class="botones" type="button"id="editar">Editar</button><button class="botones" type="button"id="eliminar">Eliminar</button></td>
+                        <tr class="tabla__fila">
+                            <td class="tabla__celda" id="t-codigo"></td>
+                            <td class="tabla__celda" id="t-nombre" ></td>
+                            <td class="tabla__celda" id="t-cantidad"></td>
+                            <td class="tabla__celda" id="t-precio"></td>
+                            <td class="tabla__celda" id= "t-botones"><button class="botones__formulario__edicion" type="button"id="editar">Editar</button><button class="botones__formulario__edicion" type="button"id="eliminar">Eliminar</button></td>
                         </tr>
                     </tbody>
                 </table>
