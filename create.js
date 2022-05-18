@@ -9,3 +9,9 @@ botonCrear.addEventListener("click",function(event){
     console.log(1)
     console.log(codigo)
 })
+
+/*function crearProducto(from){
+let producto{
+    codigo = form.
+}
+}*/
