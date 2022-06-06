@@ -1,0 +1,11 @@
+.secciones{
+    background-color: white;
+    padding: 1em;
+    border: solid;
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 45%
+}

@@ -1,0 +1,23 @@
+.botones__formulario__carga{
+    border-radius: 15px;
+    font-size: 0.75em;
+    width: 60px;
+    padding: 2px;
+    margin:5px;
+    position: relative;
+    left: 40%;
+    right: 40%;    
+}
+.botones__formulario__edicion{
+    border-radius: 15px;
+    font-size: 0.75em;
+    padding: 2px;
+    margin: 5px;
+    width: 50px;
+}
+
+
+ .botones:hover{
+     font-size: 0.85em;
+     background-color: grey;
+ }

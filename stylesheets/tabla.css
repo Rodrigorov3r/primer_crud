@@ -1,0 +1,13 @@
+.tabla{
+    border: solid 2px;
+    width: 100%;
+    page-break-inside: avoid;
+}
+.tabla__cabecera{
+    border: solid 2px;
+}
+.tabla__celda{
+    border: solid 2px ;
+    margin: 10px;
+    text-align: center;
+}
