@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/reset.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/cabecera.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/formulario.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/inputs.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/botones.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/tabla.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>First Crud</title>
+</head>
+
+<body>
+    <header class="cabecera">
+        <img class="cabecera__imagen" src="./stylesheets/crud.png">
+
+    </header>
+
+    <main>
+        <section class="secciones">
+            <form class="formulario" id="carga-producto">
+                <div>
+                    <label class="label" for="codigo-prodcuto">Codigo de Producto</label>
+                    <input type="text" class="inputs" id="codigo-producto"
+                        placeholder="Coloque el codigo de producto"></input>
+                </div>
+                </div>
+                <label class="label" for="nombre">Nombre de Producto</label>
+                <input type="text" class="inputs" id="nombre" placeholder="Coloque el nombre de producto"></input>
+                </div>
+                </div>
+                <label class="label" for="cantidad">Cantidad</label>
+                <input type="number" class="inputs" id="cantidad"
+                    placeholder="Coloque la cantidad de productos"></input>
+                </div>
+                </div>
+                <label class="label" for="precio">Precio</label>
+                <input type="number" class="inputs" id="precio" placeholder="Coloque el precio"></input>
+                </div>
+                </div>
+                <button id="btnCrear" type="button" class="botones__formulario__carga" data-bs-toggle="modal"> Crear
+                </button>
+                <button class="botones__formulario__carga" type="button" id="reset">Reset</button>
+                </div>
+            </form>
+        </section>
+        <section class="secciones">
+            <table class="tabla">
+                <thead class="tabla__cabecera">
+                    <th class="tabla__cabecera__fila">Product Code</th>
+                    <th class="tabla__cabecera__fila">Product Name</th>
+                    <th class="tabla__cabecera__fila">Product Qty</th>
+                    <th class="tabla__cabecera__fila">Product Price</th>
+                </thead>
+                <tbody>
+                    <tr class="tabla__fila">
+                        <td class="tabla__celda" id="t-codigo"></td>
+                        <td class="tabla__celda" id="t-nombre"></td>
+                        <td class="tabla__celda" id="t-cantidad"></td>
+                        <td class="tabla__celda" id="t-precio"></td>
+                        <td class="tabla__celda" id="t-botones"><button class="botones__formulario__edicion"
+                                type="button" id="editar">Editar</button><button class="botones__formulario__edicion"
+                                type="button" id="eliminar">Eliminar</button></td>
+                    </tr>
+                    <tr class="tabla__fila">
+                        <td class="tabla__celda" id="t-codigo"></td>
+                        <td class="tabla__celda" id="t-nombre"></td>
+                        <td class="tabla__celda" id="t-cantidad"></td>
+                        <td class="tabla__celda" id="t-precio"></td>
+                        <td class="tabla__celda" id="t-botones"><button class="botones__formulario__edicion"
+                                type="button" id="editar">Editar</button><button class="botones__formulario__edicion"
+                                type="button" id="eliminar">Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+
+
+    <div class="modal fade" id="modalArticulo" tabindex="-1" aria-labelledby="modalArticulo" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalArticulo">Articulo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="descripcion" class="col-form-label">Descripción</label>
+                            <input type="text" class="form-control" id="descripcion">
+                        </div>
+                        <div class="mb-3">
+                            <label for="precio" class="col-form-label">Precio</label>
+                            <input type="number" class="form-control" id="precio">
+                        </div>
+                        <div class="mb-3">
+                            <label for="stock" class="col-form-label">Stock</label>
+                            <input type="number" class="form-control" id="stock">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<!-- <script src="scripts/create.js"></script>
+    <script src="scripts/delete.js"></script>
+    <script src="scripts/update.js"></script>
+    <script src="scripts/read.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<script src="./scripts/code.js"></script>
+<footer>La cacarusa</footer>
+
+</html>
