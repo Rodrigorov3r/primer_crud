@@ -75,8 +75,9 @@ app.post('/articulos', (req, res) => {
     if (error) {
       throw error;
     } else {
-      console.log('Articulo agregado ;)');
-      res.send(resultados);
+      console.log('Articulo agregado ;)', data);
+      Object.assign(data, {id: resultados.id}) //agregamos el objeto id al ob.data
+      res.send(data); //enviamos data(valores)
     }
   });
 });
