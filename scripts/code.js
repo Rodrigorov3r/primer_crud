@@ -7,20 +7,21 @@ const modalArticulos = new bootstrap.Modal(
   document.getElementById('modalArticulo')
 );
 
-const formulario = document.querySelector('form');
+const formulario = document.getElementById('super-form');
 //inputs modal
 const descripcion = document.getElementById('descripcion');
 const precio = document.getElementById('precio');
 const stock = document.getElementById('stock');
 
-//crear o editar
-const opcion = '';
+//opcion para if en crear o editar
+let opcion = '';
 
 //botón crear
 btnCrear.addEventListener('click', () => {
   descripcion.value = '';
   precio.value = '';
   stock.value = '';
+  opcion = 'crear';
   modalArticulos.show();
 });
 
@@ -49,6 +50,7 @@ const mostrarData = (articulos) => {
 //traer datos
 fetch(url)
   .then((response) => response.json())
+  //ese objeto/promesa lo meto en mi variable data para poder manipularlo
   .then((data) => mostrarData(data))
   .catch((error) => console.log(error));
 
@@ -84,7 +86,7 @@ on(document, 'click', '.btnBorrar', (e) => {
   );
 });
 
-//editar
+//modal con datos de producto
 on(document, 'click', '.btnEditar', (e) => {
   const row = e.target.parentNode.parentNode;
   const formId = row.children[0].innerHTML;
@@ -92,7 +94,6 @@ on(document, 'click', '.btnEditar', (e) => {
   //capturo datos
   const formDescripcion = row.children[1].innerHTML;
   const formPrecio = row.children[2].innerHTML;
-  console.log(formPrecio)
   const formStock = row.children[3].innerHTML;
 
   //se los paso al form
@@ -100,6 +101,40 @@ on(document, 'click', '.btnEditar', (e) => {
   precio.value = formPrecio;
   stock.value = formStock;
 
+  opcion = 'editar';
+
   //disparo el modal con los datos
   modalArticulos.show();
+});
+
+//crear y editar
+formulario.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  if (opcion == 'crear') {
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        descripcion: descripcion.value,
+        precio: precio.value,
+        stock: stock.value,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const nuevoArticulo = [];
+        //meto data en mi array vacío
+        nuevoArticulo.push(data);
+
+        //y con la func lo agrego al front
+        mostrarData(nuevoArticulo);
+      });
+  }
+  if (opcion == 'editar') {
+    console.log('rompete la eDICION');
+  }
+  modalArticulos.hide();
 });
