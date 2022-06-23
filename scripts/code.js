@@ -86,10 +86,11 @@ on(document, 'click', '.btnBorrar', (e) => {
   );
 });
 
+let formId = 0;
 //modal con datos de producto
 on(document, 'click', '.btnEditar', (e) => {
   const row = e.target.parentNode.parentNode;
-  const formId = row.children[0].innerHTML;
+  formId = row.children[0].innerHTML;
 
   //capturo datos
   const formDescripcion = row.children[1].innerHTML;
@@ -134,7 +135,19 @@ formulario.addEventListener('submit', (e) => {
       });
   }
   if (opcion == 'editar') {
-    console.log('rompete la eDICION');
+    fetch(url + formId, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        descripcion: descripcion.value,
+        precio: precio.value,
+        stock: stock.value,
+      }),
+    })
+      .then((response) => response.json())
+      .then((response) => location.reload());
   }
   modalArticulos.hide();
 });
