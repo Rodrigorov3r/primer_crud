@@ -85,3 +85,21 @@ on(document, 'click', '.btnBorrar', (e) => {
 });
 
 //editar
+on(document, 'click', '.btnEditar', (e) => {
+  const row = e.target.parentNode.parentNode;
+  const formId = row.children[0].innerHTML;
+
+  //capturo datos
+  const formDescripcion = row.children[1].innerHTML;
+  const formPrecio = row.children[2].innerHTML;
+  console.log(formPrecio)
+  const formStock = row.children[3].innerHTML;
+
+  //se los paso al form
+  descripcion.value = formDescripcion;
+  precio.value = formPrecio;
+  stock.value = formStock;
+
+  //disparo el modal con los datos
+  modalArticulos.show();
+});
